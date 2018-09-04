@@ -42,4 +42,4 @@ TODO list:
 * Fund Transfer API requests
 * Sample standalone `/order/create` file for use with a trading bot
 
-LICENSE: [MIT License](https://choosealicense.com/licenses/mit/)
+LICENSE: [MIT License](https://github.com/Aquafortis/btcmarkets-python-plus/blob/master/LICENSE.txt)
