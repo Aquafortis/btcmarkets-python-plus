@@ -16,13 +16,13 @@ Tested on Python 2.7.15
 
 Tested on Python 3.7.0
 
-** Usage **
+**Usage**
 
 See `main.py` file with examples.
 
 `$ python3 main.py`
 
-** Points of interest **
+**Points of interest**
 
 You'll need `requests` and `calendar` modules installed.
 
