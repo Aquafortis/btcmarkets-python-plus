@@ -1,6 +1,6 @@
 # BTC Markets python plus
 ## Optimised for Python 3x
-Forked from [BTCMarkets / api-client-python](https://github.com/BTCMarkets/api-client-python) v1 API
+Originally forked from [BTCMarkets / api-client-python](https://github.com/BTCMarkets/api-client-python) v1 API
 ### What's new?
 * Using `requests` instead of `urllib`
 * Added `/order/cancel`
