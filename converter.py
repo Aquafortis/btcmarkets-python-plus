@@ -32,17 +32,18 @@ class Converter:
 
         return time.asctime(time.localtime(time.time()))
 
-    # Convert price amount or volume to 1E8 integer (max 2 decimal places)
-    def price_integer(self, amount):
+    # Convert price or volume to 1E8 integer (max 2 decimal places)
+    def price_integer(self, rate):
 
-        return int(amount*1E8)
+        return int(rate*1E8)
 
-    # Convert 1E8 integer to actual price amount or volume (rounded)
+    # Convert 1E8 integer to actual price or volume (rounded)
     def integer_price(self, integer):
 
         return int(integer/1E8)
 
-# Usage (use only in main.py, not here)
+##convert = Converter()
+# Usage (copy from below to main.py)
 #print(convert.get_timestamp(2018, 9, 3, 0, 0, 0, 1000))
 #print(convert.get_localtime(1535932800000, 1000))
 #print(convert.get_localtime(1535945835, 1))
