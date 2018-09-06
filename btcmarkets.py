@@ -22,18 +22,18 @@ def request(action, key, signature, timestamp, path, postData):
 
     if action == "post":
         r = requests.post(baseUrl + path, data=postData, headers=headers)
-        responce = r.json()
-        resp = json.dumps(responce, indent=4)
+        response = r.json()
+        resp = json.dumps(response, indent=4)
         # Write to file
-        content = open("responces.txt", "a")
+        content = open("responses.txt", "a")
         content.write(resp + "\n")
         content.close()
     else:
         r = requests.get(baseUrl + path, headers=headers)
-        responce = r.json()
-        resp = json.dumps(responce, indent=4)
+        response = r.json()
+        resp = json.dumps(response, indent=4)
         # Write to file
-        content = open("responces.txt", "a")
+        content = open("responses.txt", "a")
         content.write(resp + "\n")
         content.close()
     return resp

@@ -73,7 +73,7 @@ class BTCMarketsSell(object):
             dat = json.dumps(data, indent=4)
             print(dat)
             # Write to file
-            content = open("responces.txt", "a")
+            content = open("responses.txt", "a")
             content.write("Sell Order\n")
             content.write(dat + "\n")
             content.close()

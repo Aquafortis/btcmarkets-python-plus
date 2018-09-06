@@ -43,7 +43,7 @@ You'll need `requests` and `calendar` modules installed.
 
 If you want to programmatically clean out your response backups from the text file, just run these next few lines in the `main.py` file.
 
-`content = open("responces.txt", "w")`  
+`content = open("responses.txt", "w")`  
 `content.truncate()`  
 `content.close()`
 
