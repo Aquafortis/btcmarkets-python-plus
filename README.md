@@ -10,12 +10,18 @@ Originally forked from [BTCMarkets / api-client-python](https://github.com/BTCMa
 * Includes a 1E8 converter for price and volume
 * Includes a timestamp and datetime string converter
 * Added standalone buy and sell order files
+* Added Fund Transfer API requests
 
 **Only using stable v1 API** (for now)
 
 Tested on Python 2.7.15
 
 Tested on Python 3.7.0
+
+### Important!
+**All `rate` and `quantity` fields are automatically multiplied by 100000000**
+
+Type in the **Actual** price, volume, or amount you want to trade or send.
 
 **Usage**
 
@@ -50,7 +56,8 @@ If you want to programmatically clean out your response backups from the text fi
 Don't forget to add your keys to the `config.py` file.
 
 TODO list:
-* Fund Transfer API requests
+* ~~Fund Transfer API requests~~
 * ~~Sample standalone `/order/create` files for use with a trading bot~~
+* Sleep
 
 LICENSE: [MIT License](https://github.com/Aquafortis/btcmarkets-python-plus/blob/master/LICENSE.txt)

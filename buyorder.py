@@ -13,6 +13,7 @@ import config
 # {"ordertype": "Limit"}
 # {"ordertype": "Market"}
 """
+# Important: rate and quantity are automatically multiplied by 100000000
 class BTCMarketsBuy(object):
     apiKey = config.apiKey
     apiSecret = config.apiSecret
@@ -24,12 +25,13 @@ class BTCMarketsBuy(object):
     currency = "AUD"
     instrument = "BTC"
     ordertype = "Limit"
-    # Price of bid
+    # Actual price of bid
     rate = 2000
-    # Quantity to buy
+    # Actual quantity to buy
     quantity = 0.01
     # Don't change anything below this line.
 
+    # Converts values above into 1E8 integer (x 100000000)
     price = int(rate*1E8)
     volume = int(quantity*1E8)
     trade = rate * quantity

@@ -129,9 +129,38 @@ class BTCMarkets:
 
         return post_request(self.key, self.secret, "/order/cancel", postData)
 
+    def funds_transfer_crypto(self, amount, address, currency):
+
+        data = OrderedDict([
+            ("amount", amount),
+            ("address", address),
+            ("currency", currency)
+        ])
+        postData = json.dumps(data, separators=(",", ":"))
+
+        return post_request(self.key, self.secret, "/fundtransfer/withdrawCrypto", postData)
+
+    def funds_withdraw_fiat(self, name, number, bank, bsb, amount, currency):
+
+        data = OrderedDict([
+            ("accountName", name),
+            ("accountNumber", number),
+            ("bankName", bank),
+            ("bsbNumber", bsb),
+            ("amount", amount),
+            ("currency", currency)
+        ])
+        postData = json.dumps(data, separators=(",", ":"))
+
+        return post_request(self.key, self.secret, "/fundtransfer/withdrawEFT", postData)
+
     def account_balance(self):
 
         return get_request(self.key, self.secret, "/account/balance")
+
+    def account_tradingfee(self, instrument, currency):
+
+        return get_request(self.key, self.secret, "/account/"+instrument+"/"+currency+"/tradingfee")
 
     def get_market_tick(self, instrument, currency):
 
