@@ -58,6 +58,6 @@ Don't forget to add your keys to the `config.py` file.
 TODO list:
 * ~~Fund Transfer API requests~~
 * ~~Sample standalone `/order/create` files for use with a trading bot~~
-* Sleep
+* Get some sleep
 
 LICENSE: [MIT License](https://github.com/Aquafortis/btcmarkets-python-plus/blob/master/LICENSE.txt)
