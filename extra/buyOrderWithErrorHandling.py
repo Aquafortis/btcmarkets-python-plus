@@ -87,7 +87,7 @@ class BTCMarketsBuy(object):
                     print("Response Code: " + str(r.status_code))
 
             except Exception as e:
-                print("Error: ", e)
+                print("Error:", e)
 
             time.sleep(self.seconds)
             continue
