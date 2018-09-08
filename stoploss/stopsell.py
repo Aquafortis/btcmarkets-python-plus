@@ -2,22 +2,23 @@ import requests  # pip install requests
 import json
 import time
 
+import settings
 from marketsell import BTCMarketsSell
 """
 # Copyright (c) 2018 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 """
+# Make all changes in the settings.py file
 class StopLossSell(object):
 
     def stop_sell(self):
-        # Set matching instrument and currency in marketsell.py
-        # Set quantity in marketsell.py
-        seconds = 300
-        instrument = "BTC"
-        currency = "AUD"
-        stopLoss = 9000
-        sellPrice = 10200
-        # Don't change anything below this line.
+
+        seconds = settings.sellSeconds
+        currency = settings.sellCurrency
+        instrument = settings.sellInstrument
+        stopLoss = settings.sellStopLoss
+        sellPrice = settings.sellPrice
+
         runOnce = 0
         while runOnce < 1:
             time.sleep(seconds)

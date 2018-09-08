@@ -7,10 +7,12 @@ import time
 from collections import OrderedDict
 
 import config
+import settings
 """
 # Copyright (c) 2018 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 """
+# Make all changes in the settings.py file
 # Important: rate and quantity are automatically multiplied by 100000000
 class BTCMarketsSell(object):
     apiKey = config.apiKey
@@ -18,15 +20,10 @@ class BTCMarketsSell(object):
     nonce = str(int(round(time.time() * 1000)))
     baseUrl = "https://api.btcmarkets.net"
     url = "/order/create"
-
-    # Add your order details here:
-    currency = "AUD"
-    instrument = "BTC"
-    # Actual price much higher than sellPrice
-    rate = 40000
-    # Actual quantity to sell
-    quantity = 0.01
-    # Don't change anything below this line.
+    currency = settings.sellCurrency
+    instrument = settings.sellInstrument
+    rate = settings.sellPrice
+    quantity = settings.sellQuantity
 
     # Converts values above into 1E8 integer (x 100000000)
     price = int(rate*1E8)

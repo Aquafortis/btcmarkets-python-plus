@@ -2,22 +2,23 @@ import requests  # pip install requests
 import json
 import time
 
+import settings
 from marketbuy import BTCMarketsBuy
 """
 # Copyright (c) 2018 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 """
+# Make all changes in the settings.py file
 class StopLossBuy(object):
 
     def stop_buy(self):
-        # Set matching instrument and currency in marketbuy.py
-        # Set quantity in marketbuy.py
-        seconds = 300
-        instrument = "BTC"
-        currency = "AUD"
-        stopLoss = 9080
-        buyPrice = 7800
-        # Don't change anything below this line.
+
+        seconds = settings.buySeconds
+        currency = settings.buyCurrency
+        instrument = settings.buyInstrument
+        stopLoss = settings.buyStopLoss
+        buyPrice = settings.buyPrice
+
         runOnce = 0
         while runOnce < 1:
             time.sleep(seconds)

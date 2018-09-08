@@ -4,29 +4,28 @@
 
 Read the instructions in the files.
 
-As BTC Markets doesn't currently have a `stop-loss` setting
+As BTC Markets doesn't currently (September 2018) have a `stop-loss` setting
 we can use this workaround.
 
 This can also be used as an `"oco"` order type. (one cancels the other)
 
 **Usage:**
 
-Set (seconds) to time between api calls for lastPrice.
+Specify all of your order settings in the `settings.py` file.
+
+`Seconds` is the time between api calls to get lastPrice.
 
 300 = 5 minutes - which should suit most swing trades.
 
-Make sure the matching `instrument` and `currency` settings are set in both files.
+There is no need to modify the other files, except for adding your keys
+to `config.py` and uncommenting `requests.post` in `marketbuy.py` and
+`marketsell.py` files.
 
-Set your `quantity`.
-
-Note that we are using "Market" trades so your order should be filled.
-
-Even though it is not used for "Market" orders, as a precaution, set the
-`price` in `marketbuy.py` and `marketsell.py` files as per instructions.
+Note that we are using "Market" trades so your order should get filled.
 
 Once you have everything set:
 
-`$ cd (path to the stoploss folder)`
+`$ cd (path to stoploss folder)`
 
 then run the script:
 
