@@ -11,6 +11,7 @@ Originally forked from [BTCMarkets / api-client-python](https://github.com/BTCMa
 * Includes a timestamp and datetime string converter
 * Added standalone buy and sell order files
 * Added Fund Transfer API requests
+* Added `stop-loss` or `oco` order type files
 
 **Only using stable v1 API** (for now)
 
