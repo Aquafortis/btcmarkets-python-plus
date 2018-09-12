@@ -37,12 +37,12 @@ class StopLossSell(object):
 
                     if lastPrice < stopLoss:
                         # Sell if market falls below stopLoss
-                        BTCMarketsSell().sell_some()
+                        BTCMarketsSell().sell_market()
                         runOnce = 1
 
                     elif lastPrice > sellPrice:
                         # Sell if market rises above sellPrice
-                        BTCMarketsSell().sell_some()
+                        BTCMarketsSell().sell_market()
                         runOnce = 1
 
                     else:

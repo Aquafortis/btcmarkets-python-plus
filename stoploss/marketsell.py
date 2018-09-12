@@ -40,7 +40,7 @@ class BTCMarketsSell(object):
     ])
     postData = json.dumps(data, separators=(",", ":"))
 
-    def sell_some(self):
+    def sell_market(self):
 
         try:
 
@@ -74,6 +74,7 @@ class BTCMarketsSell(object):
 
             if r.status_code == 200:
                 print("Sell Order")
+                
             else:
                 print("Response Code: " + str(r.status_code))
 

@@ -1,3 +1,0 @@
-Backup of your responses.
-Comment out "Write to file" section if you don't want to use it.
-This file could become quite large over time.

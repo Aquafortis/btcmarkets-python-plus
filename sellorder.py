@@ -12,6 +12,7 @@ import config
 # https://github.com/Aquafortis/btcmarkets-python-plus
 # {"ordertype": "Limit"}
 # {"ordertype": "Market"}
+# $ python3 sellorder.py
 """
 # Important: rate and quantity are automatically multiplied by 100000000
 class BTCMarketsSell(object):
@@ -34,7 +35,7 @@ class BTCMarketsSell(object):
     # Converts values above into 1E8 integer (x 100000000)
     price = int(rate*1E8)
     volume = int(quantity*1E8)
-    trade = rate * quantity
+    trade = rate*quantity
     print("Trade amount:", trade)
 
     data = OrderedDict([
@@ -48,7 +49,7 @@ class BTCMarketsSell(object):
     ])
     postData = json.dumps(data, separators=(",", ":"))
 
-    def sell_some(self):
+    def sell_order(self):
 
         try:
 
@@ -82,10 +83,11 @@ class BTCMarketsSell(object):
 
             if r.status_code == 200:
                 print("Sell Order")
+
             else:
                 print("Response Code: " + str(r.status_code))
 
         except Exception as e:
             print("Error:", e)
 
-BTCMarketsSell().sell_some()
+BTCMarketsSell().sell_order()

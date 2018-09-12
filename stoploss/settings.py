@@ -7,7 +7,7 @@
 # $ cd (path to stoploss folder)
 """
 
-# Buy Stop Loss (OCO)
+# Buy Order with Stop (OCO)
 buySeconds = 300
 buyCurrency = "AUD"
 buyInstrument = "BTC"
@@ -16,7 +16,7 @@ buyPrice = 7800
 buyQuantity = 0.01
 # Run $ python3 stopbuy.py
 
-# Sell Stop Loss (OCO)
+# Sell Order with Stop (OCO)
 sellSeconds = 300
 sellCurrency = "AUD"
 sellInstrument = "BTC"

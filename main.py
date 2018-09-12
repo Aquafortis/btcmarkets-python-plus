@@ -6,6 +6,7 @@ import config
 """
 # https://github.com/BTCMarkets/API/wiki/Introduction
 # https://github.com/Aquafortis/btcmarkets-python-plus
+# $ python3 main.py
 """
 # Important: rate and quantity are automatically multiplied by 100000000
 apiKey = config.apiKey

@@ -37,12 +37,12 @@ class StopLossBuy(object):
 
                     if lastPrice > stopLoss:
                         # Buy if market rises above stopLoss
-                        BTCMarketsBuy().buy_some()
+                        BTCMarketsBuy().buy_market()
                         runOnce = 1
 
                     elif lastPrice < buyPrice:
                         # Buy if market falls below buyPrice
-                        BTCMarketsBuy().buy_some()
+                        BTCMarketsBuy().buy_market()
                         runOnce = 1
 
                     else:
