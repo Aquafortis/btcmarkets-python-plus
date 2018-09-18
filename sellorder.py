@@ -47,7 +47,7 @@ class BTCMarketsSell(object):
         ("ordertype", ordertype),
         ("clientRequestId", nonce)
     ])
-    postData = json.dumps(data, separators=(",", ":"))
+    postdata = json.dumps(data, separators=(",", ":"))
 
     def sell_order(self):
 
@@ -55,7 +55,7 @@ class BTCMarketsSell(object):
 
             nonce = str(int(round(time.time() * 1000)))
             secret = base64.b64decode(self.apiSecret)
-            payload = self.url + "\n" + nonce + "\n" + self.postData
+            payload = self.url + "\n" + nonce + "\n" + self.postdata
 
             signature = base64.b64encode(hmac.new(secret, payload.encode(), hashlib.sha512).digest())
 
@@ -70,7 +70,7 @@ class BTCMarketsSell(object):
             }
 
             # Uncomment the line below to go live!
-            #r = requests.post(self.baseUrl + self.url, data=self.postData, headers=headers)
+            #r = requests.post(self.baseUrl + self.url, data=self.postdata, headers=headers)
             print("Response Code: " + str(r.status_code))
             data = r.json()
             dat = json.dumps(data, indent=4)

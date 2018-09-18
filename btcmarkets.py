@@ -8,7 +8,7 @@ from collections import OrderedDict
 
 baseUrl = "https://api.btcmarkets.net"
 
-def request(action, key, signature, timestamp, path, postData):
+def request(action, key, signature, timestamp, path, postdata):
 
     headers = {
         "accept": "application/json",
@@ -21,7 +21,7 @@ def request(action, key, signature, timestamp, path, postData):
     }
 
     if action == "post":
-        r = requests.post(baseUrl + path, data=postData, headers=headers)
+        r = requests.post(baseUrl + path, data=postdata, headers=headers)
         response = r.json()
         resp = json.dumps(response, indent=4)
         # Write to file
@@ -40,19 +40,19 @@ def request(action, key, signature, timestamp, path, postData):
 
 def get_request(key, secret, path):
 
-    nowInMilisecond = str(int(time.time() * 1000))
-    stringToSign = path + "\n" + nowInMilisecond + "\n"
-    signature = base64.b64encode(hmac.new(secret, stringToSign.encode(), hashlib.sha512).digest())
+    nonce = str(int(time.time() * 1000))
+    payload = path + "\n" + nonce + "\n"
+    signature = base64.b64encode(hmac.new(secret, payload.encode(), hashlib.sha512).digest())
 
-    return request("get", key, signature, nowInMilisecond, path, None)
+    return request("get", key, signature, nonce, path, None)
 
-def post_request(key, secret, path, postData):
+def post_request(key, secret, path, postdata):
 
-    nowInMilisecond = str(int(time.time() * 1000))
-    stringToSign = path + "\n" + nowInMilisecond + "\n" + postData
-    signature = base64.b64encode(hmac.new(secret, stringToSign.encode(), hashlib.sha512).digest())
+    nonce = str(int(time.time() * 1000))
+    payload = path + "\n" + nonce + "\n" + postdata
+    signature = base64.b64encode(hmac.new(secret, payload.encode(), hashlib.sha512).digest())
 
-    return request("post", key, signature, nowInMilisecond, path, postData)
+    return request("post", key, signature, nonce, path, postdata)
 
 class BTCMarkets:
 
@@ -68,9 +68,9 @@ class BTCMarkets:
             ("limit", limit),
             ("since", since)
         ])
-        postData = json.dumps(data, separators=(",", ":"))
+        postdata = json.dumps(data, separators=(",", ":"))
 
-        return post_request(self.key, self.secret, "/order/trade/history", postData)
+        return post_request(self.key, self.secret, "/order/trade/history", postdata)
 
     def order_create(self, currency, instrument, price, volume, side, order_type, client_request_id):
 
@@ -83,9 +83,9 @@ class BTCMarkets:
             ("ordertype", order_type),
             ("clientRequestId", client_request_id)
         ])
-        postData = json.dumps(data, separators=(",", ":"))
+        postdata = json.dumps(data, separators=(",", ":"))
 
-        return post_request(self.key, self.secret, "/order/create", postData)
+        return post_request(self.key, self.secret, "/order/create", postdata)
 
     def order_history(self, currency, instrument, limit, since):
 
@@ -95,9 +95,9 @@ class BTCMarkets:
             ("limit", limit),
             ("since", since)
         ])
-        postData = json.dumps(data, separators=(",", ":"))
+        postdata = json.dumps(data, separators=(",", ":"))
 
-        return post_request(self.key, self.secret, "/order/history", postData)
+        return post_request(self.key, self.secret, "/order/history", postdata)
 
     def order_open(self, currency, instrument, limit, since):
 
@@ -107,27 +107,27 @@ class BTCMarkets:
             ("limit", limit),
             ("since", since)
         ])
-        postData = json.dumps(data, separators=(",", ":"))
+        postdata = json.dumps(data, separators=(",", ":"))
 
-        return post_request(self.key, self.secret, "/order/open", postData)
+        return post_request(self.key, self.secret, "/order/open", postdata)
 
     def order_detail(self, order_ids):
 
         data = {
             "orderIds": order_ids
         }
-        postData = json.dumps(data, separators=(",", ":"))
+        postdata = json.dumps(data, separators=(",", ":"))
 
-        return post_request(self.key, self.secret, "/order/detail", postData)
+        return post_request(self.key, self.secret, "/order/detail", postdata)
 
     def order_cancel(self, order_ids):
 
         data = {
             "orderIds": order_ids
         }
-        postData = json.dumps(data, separators=(",", ":"))
+        postdata = json.dumps(data, separators=(",", ":"))
 
-        return post_request(self.key, self.secret, "/order/cancel", postData)
+        return post_request(self.key, self.secret, "/order/cancel", postdata)
 
     def funds_transfer_crypto(self, amount, address, currency):
 
@@ -136,9 +136,9 @@ class BTCMarkets:
             ("address", address),
             ("currency", currency)
         ])
-        postData = json.dumps(data, separators=(",", ":"))
+        postdata = json.dumps(data, separators=(",", ":"))
 
-        return post_request(self.key, self.secret, "/fundtransfer/withdrawCrypto", postData)
+        return post_request(self.key, self.secret, "/fundtransfer/withdrawCrypto", postdata)
 
     def funds_withdraw_fiat(self, name, number, bank, bsb, amount, currency):
 
@@ -150,9 +150,9 @@ class BTCMarkets:
             ("amount", amount),
             ("currency", currency)
         ])
-        postData = json.dumps(data, separators=(",", ":"))
+        postdata = json.dumps(data, separators=(",", ":"))
 
-        return post_request(self.key, self.secret, "/fundtransfer/withdrawEFT", postData)
+        return post_request(self.key, self.secret, "/fundtransfer/withdrawEFT", postdata)
 
     def account_balance(self):
 
