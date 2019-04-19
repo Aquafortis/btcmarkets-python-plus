@@ -5,7 +5,7 @@ import time
 import settings
 from marketsell import BTCMarketsSell
 """
-# Copyright (c) 2018 Aquafortis
+# Copyright (c) 2019 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 """
 # Make all changes in the settings.py file
