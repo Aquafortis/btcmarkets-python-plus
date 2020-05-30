@@ -2,7 +2,7 @@ import requests  # pip install requests
 import json
 import time
 """
-# Copyright (c) 2019 Aquafortis
+# Copyright (c) 2020 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 # "https://api.btcmarkets.net/market/BTC/AUD/tick"
 # timeinseconds 300 = 5 minutes

@@ -1,5 +1,5 @@
 """
-# Copyright (c) 2019 Aquafortis
+# Copyright (c) 2020 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 # OCO (one cancels the other)
 # Specify all of your order settings below

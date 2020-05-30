@@ -2,7 +2,7 @@ import time
 import calendar  # pip install calendar
 """
 # calendar module also imports datetime module
-# Copyright (c) 2019 Aquafortis
+# Copyright (c) 2020 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 """
 class Converter:
