@@ -8,7 +8,7 @@ from collections import OrderedDict
 
 import config
 """
-# Copyright (c) 2020 Aquafortis
+# Copyright (c) 2023 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 # {"ordertype": "Limit"}
 # {"ordertype": "Market"}

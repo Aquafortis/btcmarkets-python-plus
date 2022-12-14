@@ -5,7 +5,7 @@ import time
 import settings
 from marketbuy import BTCMarketsBuy
 """
-# Copyright (c) 2020 Aquafortis
+# Copyright (c) 2023 Aquafortis
 # https://github.com/Aquafortis/btcmarkets-python-plus
 """
 # Make all changes in the settings.py file
